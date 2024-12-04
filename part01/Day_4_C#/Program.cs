@@ -19,6 +19,7 @@ namespace Day_4_C_
         }
         static void Main(string[] args)
         {
+            // Part 01
             #region Problem1
             //int[] arr1 = new int[3];
             //arr1[0] = 1;
@@ -36,6 +37,23 @@ namespace Day_4_C_
             //    Console.WriteLine(error.Message);
             //}
 
+            /**
+             * What is the default value assigned to array elements in C#?
+             * Default Values for Different Data Types
+             * int	0
+             * double	0.0
+             * char	   '\0'
+             * bool	    false
+             * string	null
+             * object	null
+             * DateTime	DateTime.MinValue (January 1, 0001)
+             * float	0.0f
+             * long	    0L
+             * decimal	0.0m
+             * byte	    0
+             * short	0
+             */
+
             #endregion
 
             #region problem2
@@ -52,9 +70,23 @@ namespace Day_4_C_
 
             //arr2 = (int[])arr1.Clone(); //deep copy
 
-            //Console.WriteLine("shallow copy ref to diff objs");
+            //Console.WriteLine("deep copy ref to diff objs");
             //Console.WriteLine(arr1.GetHashCode());
             //Console.WriteLine(arr2.GetHashCode());
+
+            /**
+             * What is the difference between Array.Clone() and Array.Copy()? 
+             * Array.Clone():
+             * copy of the entire array.
+             * Returns a new array that is a copy of the original array,
+             * but for reference types (e.g., objects) , the references are copied
+             * 
+             * Array.Copy():
+             *  copy of the array, but it allows more flexibility:
+             *  You can copy a subset of the array (e.g., from a specific index to another index).
+             *  You can copy the array to another existing array (which could be of the same or compatible type).
+             *  It does not return a new array. Instead, it copies elements to an existing destination array.
+             */
 
             #endregion
 
@@ -81,6 +113,30 @@ namespace Day_4_C_
             //    }
             //    Console.WriteLine();
             //}
+
+            /**
+             * What is the difference between GetLength() and Length for multidimensional arrays?
+             * 
+             *  GetLength() and Length are used to retrieve information about the size of an array, 
+             *  but they behave differently, especially when dealing with multidimensional arrays.
+             *  
+             *  Length:
+             *  For a multidimensional array (e.g., a 2D array), Length gives the total count of all elements across all dimensions,
+             *  not the size of each dimension
+             *  int[,] arr2D = new int[3, 4];  // A 2D array with 3 rows and 4 columns
+             *  Console.WriteLine(arr2D.Length);  // Output: 12 (3 * 4, total elements)
+             *  
+             *  
+             *  GetLength():
+             *  Multidimensional Arrays:
+             *  The GetLength() method can be called with an integer argument representing the dimension number 
+             *  (starting from 0 for the first dimension). 
+             *  It returns the size (i.e., the number of elements) for that particular dimension.
+             *  
+             *  int[,] arr2D = new int[3, 4];  // A 2D array with 3 rows and 4 columns
+             *  Console.WriteLine(arr2D.GetLength(0));  // Output: 3 (the number of rows)
+             *  Console.WriteLine(arr2D.GetLength(1));  // Output: 4 (the number of columns)
+             */
 
             #endregion
 
@@ -146,6 +202,20 @@ namespace Day_4_C_
             //Console.WriteLine();
 
 
+            /**
+             * What is the difference between Array.Copy() and Array.ConstrainedCopy()?
+             * 
+             * Array.Copy():
+             * a general-purpose method for copying elements from one array to another.
+             * It supports copying a subset of elements from one array to another
+             * as well as copying the entire array.
+             * 
+             * Array.ConstrainedCopy():
+             * specialized version of Array.Copy() ---> type safety
+             * it adds an additional check to ensure that the elements being copied are compatible with the destination array.
+             * used to ensure type safety when copying elements between arrays.
+             */
+
             #endregion
 
             #region problem5
@@ -168,6 +238,17 @@ namespace Day_4_C_
             //    x--;
             //}
 
+            /**
+             * Why is foreach preferred for read-only operations on arrays? 
+             * 
+             * 1- Immutability and Safety
+             * 2- Readability
+             * 3- Reduced Risk of Errors
+             * 4- Performance Considerations
+             * 5- Avoiding Accidental Modifications
+             * 6- Multidimensional Arrays and Collections
+             */
+
             #endregion
 
             #region problem6
@@ -177,6 +258,15 @@ namespace Day_4_C_
             //    Console.WriteLine("enter a positive odd number");
             //    input = int.Parse(Console.ReadLine());
             //} while (input % 2 == 0 || input < 0); // check on the input
+
+            /**
+             * Why is input validation important when working with user inputs?
+             * 1- Security
+             * 2- Data Integrity
+             * 3- User Experience
+             * 4- Preventing Application Crashes
+             * 5- Prevents Resource Wasting
+             */
 
             #endregion
 
@@ -191,6 +281,15 @@ namespace Day_4_C_
             //    }
             //    Console.WriteLine();
             //}
+
+            /**
+             * How can you format the output of a 2D array for better readability?
+             * 
+             * using:
+             * 1- Using Nested Loops
+             * 2- string.Join()
+             * 3- String.Format()
+             */
             #endregion
 
             #region problem8
@@ -295,6 +394,14 @@ namespace Day_4_C_
             //}
             //Console.WriteLine($"Month: {monthNameSwitch}");
 
+
+            /**
+             * When should you prefer a switch statement over if-else? 
+             * 1- Multiple Conditions Based on a Single Variable like our ex
+             * 2- When You Have Fixed, Known Values to Compare
+             * 3- Equality Operators
+             */
+
             #endregion
 
             #region problem9
@@ -308,6 +415,16 @@ namespace Day_4_C_
             //Console.WriteLine();
             //Console.WriteLine(Array.IndexOf(arr, 5));
             //Console.WriteLine(Array.LastIndexOf(arr, 5));
+
+
+            /**
+             * What is the time complexity of Array.Sort()?
+             * 
+             * Best Case Time Complexity --> O(n log n)
+             * Worst Case Time Complexity --> O(n^2)
+             * 
+             * Average Case Time Complexity --> O(n log n)
+             */
             #endregion
 
             #region problem10
@@ -329,13 +446,23 @@ namespace Day_4_C_
 
             //Console.WriteLine($"using for ===> {sum}");
 
+            /**
+             * Which loop (for or foreach) is more efficient for calculating the sum of an array, and why? 
+             * for loop is slightly more efficient in terms of raw performance for summing an array 
+             * because it avoids the overhead of using an enumerator.
+             *  
+             * foreach loop is more readable and can be preferred for simplicity,
+             * but the performance difference is minimal unless working with very large arrays 
+             * or in performance-critical applications.
+             */
+
             #endregion
 
 
-            // for part 2
-            #region part2
+            // for part 02
+            #region part 02
             /*
-             * Define an enum called DayOfWeek with values: Monday, Tuesday, Wednesday,
+             * 2 - Define an enum called DayOfWeek with values: Monday, Tuesday, Wednesday,
              * Thursday, Friday, Saturday, Sunday.
              * 
              * Write a program that takes an integer input from the user (1-7) and prints the
